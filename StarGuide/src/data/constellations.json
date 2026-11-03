@@ -1,0 +1,32 @@
+{
+  "constellations": [
+    {
+      "id": "1",
+      "name": "Orion",
+      "hemisphere": "Northern/Southern",
+      "bestSeason": "Winter",
+      "mythology": "Orion was a gigantic huntsman whom Zeus placed among the stars as a constellation after his death.",
+      "mainStars": ["Betelgeuse", "Rigel", "Bellatrix"],
+      "skyLocation": "Visible in the eastern sky during winter evenings.",
+      "visibleTonight": true
+    },
+    {
+      "id": "2",
+      "name": "Ursa Major",
+      "hemisphere": "Northern",
+      "bestSeason": "Spring",
+      "mythology": "Represented by a bear, containing the famous Big Dipper asterism.",
+      "mainStars": ["Dubhe", "Merak", "Alioth"],
+      "skyLocation": "High in the northern sky.",
+      "visibleTonight": true
+    }
+  ],
+  "celestialEvents": [
+    {
+      "id": "1",
+      "eventName": "Geminids Meteor Shower",
+      "date": "2026-12-14",
+      "description": "One of the best meteor showers producing up to 120 meteors per hour."
+    }
+  ]
+}
