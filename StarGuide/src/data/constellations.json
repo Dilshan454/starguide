@@ -5,7 +5,7 @@
       "name": "Orion",
       "hemisphere": "Northern/Southern",
       "bestSeason": "Winter",
-      "mythology": "Orion was a gigantic huntsman whom Zeus placed among the stars as a constellation after his death.",
+      "mythology": "Orion was a gigantic huntsman whom Zeus placed among the stars.",
       "mainStars": ["Betelgeuse", "Rigel", "Bellatrix"],
       "skyLocation": "Visible in the eastern sky during winter evenings.",
       "visibleTonight": true
@@ -19,6 +19,16 @@
       "mainStars": ["Dubhe", "Merak", "Alioth"],
       "skyLocation": "High in the northern sky.",
       "visibleTonight": true
+    },
+    {
+      "id": "3",
+      "name": "Cassiopeia",
+      "hemisphere": "Northern",
+      "bestSeason": "Autumn",
+      "mythology": "Named after the vain queen in Greek mythology.",
+      "mainStars": ["Schedar", "Caph", "Gamma Cas"],
+      "skyLocation": "Opposite the Big Dipper, forms a distinctive 'W' shape.",
+      "visibleTonight": false
     }
   ],
   "celestialEvents": [
