@@ -3,11 +3,11 @@
     {
       "id": "1",
       "name": "Orion",
-      "hemisphere": "Northern/Southern",
+      "hemisphere": "Both",
       "bestSeason": "Winter",
-      "mythology": "Orion was a gigantic huntsman whom Zeus placed among the stars.",
-      "mainStars": ["Betelgeuse", "Rigel", "Bellatrix"],
-      "skyLocation": "Visible in the eastern sky during winter evenings.",
+      "mythology": "Orion represents the legendary hunter of Greek mythology. In one tradition, he was placed among the stars by Zeus after his death, where he continues to hunt across the sky with his two dogs, Canis Major and Canis Minor.",
+      "mainStars": ["Betelgeuse", "Rigel", "Bellatrix", "Saiph", "Alnitak", "Alnilam", "Mintaka"],
+      "skyLocation": "Find Orion by locating three bright stars in a short, nearly straight line forming his Belt. Above the belt are Betelgeuse and Bellatrix; below are Rigel and Saiph. The Orion Nebula lies just below the Belt.",
       "visibleTonight": true
     },
     {
@@ -15,9 +15,9 @@
       "name": "Ursa Major",
       "hemisphere": "Northern",
       "bestSeason": "Spring",
-      "mythology": "Represented by a bear, containing the famous Big Dipper asterism.",
-      "mainStars": ["Dubhe", "Merak", "Alioth"],
-      "skyLocation": "High in the northern sky.",
+      "mythology": "Ursa Major, the Great Bear, appears in Greek mythology as Callisto, a nymph transformed into a bear. It is also widely known through the Big Dipper, an asterism used by many cultures for navigation.",
+      "mainStars": ["Dubhe", "Merak", "Phecda", "Megrez", "Alioth", "Mizar", "Alkaid"],
+      "skyLocation": "In the Northern Hemisphere, look toward the northern sky. The seven brightest stars form the Big Dipper; the two stars at the end of the Dipper's bowl, Dubhe and Merak, point toward Polaris, the North Star.",
       "visibleTonight": true
     },
     {
@@ -25,18 +25,118 @@
       "name": "Cassiopeia",
       "hemisphere": "Northern",
       "bestSeason": "Autumn",
-      "mythology": "Named after the vain queen in Greek mythology.",
-      "mainStars": ["Schedar", "Caph", "Gamma Cas"],
-      "skyLocation": "Opposite the Big Dipper, forms a distinctive 'W' shape.",
+      "mythology": "Cassiopeia was the vain queen of Ethiopia in Greek mythology. Her boastfulness about her beauty led to her being placed in the sky, where she circles the celestial pole and sometimes appears upside down.",
+      "mainStars": ["Schedar", "Caph", "Gamma Cassiopeiae", "Ruchbah", "Segin"],
+      "skyLocation": "Cassiopeia is easy to recognize by its distinctive W- or M-shaped pattern of five bright stars. It lies opposite the Big Dipper across Polaris and remains circumpolar from many northern locations.",
+      "visibleTonight": true
+    },
+    {
+      "id": "4",
+      "name": "Scorpius",
+      "hemisphere": "Both",
+      "bestSeason": "Summer",
+      "mythology": "In Greek mythology, Scorpius represents the scorpion sent by Gaia or Artemis to kill Orion. The two constellations are placed on opposite sides of the sky, so they rarely appear together.",
+      "mainStars": ["Antares", "Shaula", "Lesath", "Dschubba", "Acrab", "Sargas"],
+      "skyLocation": "Look low toward the southern horizon from the Northern Hemisphere during summer evenings. Follow the curved line of stars from Antares, a reddish supergiant, toward the scorpion's stinger near the horizon.",
+      "visibleTonight": false
+    },
+    {
+      "id": "5",
+      "name": "Taurus",
+      "hemisphere": "Both",
+      "bestSeason": "Winter",
+      "mythology": "Taurus represents the bull of Greek mythology, often associated with Zeus transforming himself into a white bull. It is also connected to ancient stories of fertility, strength, and the heavens.",
+      "mainStars": ["Aldebaran", "Elnath", "Zeta Tauri", "Theta Tauri", "Lambda Tauri"],
+      "skyLocation": "Find Taurus by locating the V-shaped Hyades star cluster, with bright orange Aldebaran at one tip. It lies east of Orion and near the Pleiades, a compact cluster of bright blue stars.",
+      "visibleTonight": true
+    },
+    {
+      "id": "6",
+      "name": "Lyra",
+      "hemisphere": "Northern",
+      "bestSeason": "Summer",
+      "mythology": "Lyra represents the lyre of Orpheus, the legendary musician of Greek mythology whose music could charm humans, animals, and even the forces of the underworld.",
+      "mainStars": ["Vega", "Sheliak", "Sulafat", "Delta Lyrae", "Zeta Lyrae"],
+      "skyLocation": "Find Lyra by locating Vega, one of the brightest stars in the summer sky. The small parallelogram of stars south of Vega forms the body of the lyre.",
+      "visibleTonight": false
+    },
+    {
+      "id": "7",
+      "name": "Cygnus",
+      "hemisphere": "Northern",
+      "bestSeason": "Summer",
+      "mythology": "Cygnus represents a swan in Greek mythology, associated with stories of Zeus or friends of Phaethon transformed while mourning.",
+      "mainStars": ["Deneb", "Sadr", "Albireo", "Gienah", "Delta Cygni"],
+      "skyLocation": "Look for the Northern Cross, a prominent asterism formed along the Milky Way.",
+      "visibleTonight": false
+    },
+    {
+      "id": "8",
+      "name": "Leo",
+      "hemisphere": "Both",
+      "bestSeason": "Spring",
+      "mythology": "Leo represents the Nemean Lion defeated by Heracles in Greek mythology.",
+      "mainStars": ["Regulus", "Denebola", "Algieba", "Zosma", "Ras Elased"],
+      "skyLocation": "Find Leo by locating Regulus and the backward question-mark shape forming the lion's head.",
+      "visibleTonight": false
+    },
+    {
+      "id": "9",
+      "name": "Gemini",
+      "hemisphere": "Northern",
+      "bestSeason": "Winter",
+      "mythology": "Gemini represents the twin brothers Castor and Pollux of Greek mythology.",
+      "mainStars": ["Castor", "Pollux", "Alhena", "Mebsuta", "Tejat"],
+      "skyLocation": "Locate Gemini east of Orion. Its two brightest stars sit side by side.",
+      "visibleTonight": true
+    },
+    {
+      "id": "10",
+      "name": "Crux",
+      "hemisphere": "Southern",
+      "bestSeason": "Autumn",
+      "mythology": "Crux, the Southern Cross, is crucial for Southern Hemisphere navigation and holds deep cultural significance.",
+      "mainStars": ["Acrux", "Mimosa", "Gacrux", "Delta Crucis", "Epsilon Crucis"],
+      "skyLocation": "Look toward the southern sky for a compact, bright cross-shaped pattern.",
       "visibleTonight": false
     }
   ],
   "celestialEvents": [
     {
       "id": "1",
-      "eventName": "Geminids Meteor Shower",
-      "date": "2026-12-14",
-      "description": "One of the best meteor showers producing up to 120 meteors per hour."
+      "eventName": "Geminid Meteor Shower",
+      "date": "2026-12-13",
+      "description": "One of the year's most reliable and active meteor showers, peaking on the night of December 13-14, radiating from Gemini."
+    },
+    {
+      "id": "2",
+      "eventName": "Penumbral Lunar Eclipse",
+      "date": "2027-02-20",
+      "description": "The Moon passes through Earth's outer shadow, causing a subtle dimming visible from parts of the Americas, Europe, Africa, and Asia."
+    },
+    {
+      "id": "3",
+      "eventName": "Total Solar Eclipse",
+      "date": "2027-08-02",
+      "description": "A total solar eclipse crossing southern Spain, North Africa, Saudi Arabia, and Yemen."
+    },
+    {
+      "id": "4",
+      "eventName": "Quadrantid Meteor Shower",
+      "date": "2027-01-04",
+      "description": "The Quadrantids peak in early January and can produce up to about 80 meteors per hour under ideal dark-sky conditions."
+    },
+    {
+      "id": "5",
+      "eventName": "Lyrid Meteor Shower",
+      "date": "2027-04-22",
+      "description": "An annual April meteor shower associated with Comet C/1861 G1 Thatcher, known for occasional bright fireballs."
+    },
+    {
+      "id": "6",
+      "eventName": "Perseid Meteor Shower",
+      "date": "2027-08-13",
+      "description": "One of the most popular annual meteor showers, producing fast meteors and occasional bright fireballs."
     }
   ]
 }
