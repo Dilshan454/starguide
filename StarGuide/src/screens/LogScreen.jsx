@@ -26,6 +26,7 @@ export default function LogScreen() {
   };
 
   const toggleSeen = async (id) => {
+    const currentDate = new Date().toISOString().split('T')[0];
     const updatedLogs = {
       ...logs,
       [id]: {

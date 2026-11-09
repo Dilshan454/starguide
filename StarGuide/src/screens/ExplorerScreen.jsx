@@ -5,13 +5,15 @@ import data from '../data/constellations.json';
 
 export default function ExplorerScreen({ navigation }) {
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedHemisphere, setSelectedHemisphere] = useState('All');
   const [selectedSeason, setSelectedSeason] = useState('All');
 
-  // Search and Filter logic
+  
   const filteredData = data.constellations.filter(item => {
     const matchesSearch = item.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const matchesHemisphere = selectedHemisphere === 'All' || item.hemisphere.toLowerCase().includes(selectedHemisphere.toLowerCase());
     const matchesSeason = selectedSeason === 'All' || item.bestSeason === selectedSeason;
-    return matchesSearch && matchesSeason;
+    return matchesSearch && matchesHemisphere && matchesSeason;
   });
 
   return (
@@ -30,15 +32,30 @@ export default function ExplorerScreen({ navigation }) {
         />
       </View>
 
-      {/* Filter Buttons */}
-      <View style={styles.filterContainer}>
-        {['All', 'Winter', 'Spring', 'Autumn'].map(season => (
+     
+      <View style={styles.filterRow}>
+        {['All', 'Northern', 'Southern'].map(hemis => (
+          <TouchableOpacity
+            key={hemis}
+            style={[styles.filterButton, selectedHemisphere === hemis && styles.activeFilter]}
+            onPress={() => setSelectedHemisphere(hemis)}
+          >
+            <Text style={[styles.filterText, selectedHemisphere === hemis && styles.activeFilterText]}>
+              {hemis === 'All' ? 'All Hemispheres' : `${hemis} Hemisphere`}
+            </Text>
+          </TouchableOpacity>
+        ))}
+      </View>
+
+      {/* Season Filters */}
+      <View style={styles.filterRow}>
+        {['All', 'Winter', 'Spring', 'Summer', 'Autumn'].map(season => (
           <TouchableOpacity
             key={season}
-            style={[styles.filterButton, selectedSeason === season && styles.activeFilter]}
+            style={[styles.seasonButton, selectedSeason === season && styles.activeSeasonFilter]}
             onPress={() => setSelectedSeason(season)}
           >
-            <Text style={[styles.filterText, selectedSeason === season && styles.activeFilterText]}>
+            <Text style={[styles.filterText, selectedSeason === season && styles.activeSeasonFilterText]}>
               {season}
             </Text>
           </TouchableOpacity>
@@ -70,14 +87,17 @@ export default function ExplorerScreen({ navigation }) {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: '#0B0F19', padding: 20, paddingTop: 50 },
   headerTitle: { color: '#38BDF8', fontSize: 18, fontWeight: 'bold', textAlign: 'center', marginBottom: 15, letterSpacing: 1 },
-  searchContainer: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#1F2937', borderRadius: 8, paddingHorizontal: 12, marginBottom: 15 },
+  searchContainer: { flexDirection: 'row', alignItems: 'center', backgroundColor: '#1F2937', borderRadius: 8, paddingHorizontal: 12, marginBottom: 12 },
   searchIcon: { marginRight: 8 },
   input: { flex: 1, height: 45, color: '#FFF', fontSize: 16 },
-  filterContainer: { flexDirection: 'row', marginBottom: 20, justifyContent: 'space-between' },
-  filterButton: { paddingVertical: 6, paddingHorizontal: 12, backgroundColor: '#1F2937', borderRadius: 20 },
+  filterRow: { flexDirection: 'row', marginBottom: 10, flexWrap: 'wrap' },
+  filterButton: { paddingVertical: 6, paddingHorizontal: 10, backgroundColor: '#1F2937', borderRadius: 15, marginRight: 8, marginBottom: 6 },
   activeFilter: { backgroundColor: '#38BDF8' },
-  filterText: { color: '#9CA3AF', fontSize: 12 },
+  seasonButton: { paddingVertical: 5, paddingHorizontal: 10, backgroundColor: '#1F2937', borderRadius: 15, marginRight: 6, marginBottom: 10 },
+  activeSeasonFilter: { backgroundColor: '#818CF8' },
+  filterText: { color: '#9CA3AF', fontSize: 11 },
   activeFilterText: { color: '#0B0F19', fontWeight: 'bold' },
+  activeSeasonFilterText: { color: '#FFF', fontWeight: 'bold' },
   itemCard: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: '#1F2937', padding: 16, borderRadius: 10, marginBottom: 12 },
   itemName: { color: '#FFF', fontSize: 18, fontWeight: 'bold', marginBottom: 4 },
   itemSub: { color: '#9CA3AF', fontSize: 12 }
