@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import StarWatermark from '../components/StarWatermark';
 import data from '../data/constellations.json';
 
 export default function EventsScreen() {
