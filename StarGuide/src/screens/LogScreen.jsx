@@ -10,7 +10,6 @@ export default function LogScreen() {
   const [noteInput, setNoteInput] = useState('');
   const [selectedId, setSelectedId] = useState(null);
 
-  
   useEffect(() => {
     loadLogs();
   }, []);
@@ -27,7 +26,6 @@ export default function LogScreen() {
   };
 
   const toggleSeen = async (id) => {
-    const currentDate = new Date().toISOString().split('T')[0];
     const updatedLogs = {
       ...logs,
       [id]: {
@@ -55,65 +53,83 @@ export default function LogScreen() {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={styles.headerTitle}>MY STARGAZING LOG</Text>
-      <Text style={styles.subtitle}>Check-off and record your observations (Offline Storage)</Text>
+    <View style={styles.mainContainer}>
+      {/* Background Starry Sky Watermark */}
+      <StarWatermark />
 
-      <FlatList
-        data={data.constellations}
-        keyExtractor={item => item.id}
-        renderItem={({ item }) => {
-          const isSeen = logs[item.id]?.seen || false;
-          const currentNote = logs[item.id]?.note || '';
-          const isEditing = selectedId === item.id;
+      <View style={styles.container}>
+        <Text style={styles.headerTitle}>MY STARGAZING LOG</Text>
+        <Text style={styles.subtitle}>Check-off and record your observations (Offline Storage)</Text>
 
-          return (
-            <View style={styles.logCard}>
-              <View style={styles.cardHeader}>
-                <TouchableOpacity style={styles.checkboxRow} onPress={() => toggleSeen(item.id)}>
-                  <Ionicons 
-                    name={isSeen ? "checkbox" : "square-outline"} 
-                    size={24} 
-                    color={isSeen ? "#38BDF8" : "#9CA3AF"} 
-                  />
-                  <Text style={[styles.itemName, isSeen && styles.seenText]}>{item.name}</Text>
-                </TouchableOpacity>
-              </View>
+        <FlatList
+          data={data.constellations}
+          keyExtractor={item => item.id}
+          contentContainerStyle={styles.listContainer}
+          renderItem={({ item }) => {
+            const isSeen = logs[item.id]?.seen || false;
+            const currentNote = logs[item.id]?.note || '';
+            const isEditing = selectedId === item.id;
 
-              {isSeen && (
-                <View style={styles.noteSection}>
-                  <Text style={styles.noteDisplay}>Note: {currentNote || 'No notes added yet.'}</Text>
-                  
-                  {isEditing ? (
-                    <View style={styles.editBox}>
-                      <TextInput
-                        style={styles.input}
-                        placeholder="Add observation note..."
-                        placeholderTextColor="#9CA3AF"
-                        value={noteInput}
-                        onChangeText={setNoteInput}
-                      />
-                      <TouchableOpacity style={styles.saveButton} onPress={() => saveNote(item.id)}>
-                        <Text style={styles.saveButtonText}>Save</Text>
-                      </TouchableOpacity>
-                    </View>
-                  ) : (
-                    <TouchableOpacity onPress={() => { setSelectedId(item.id); setNoteInput(currentNote); }}>
-                      <Text style={styles.addNoteText}>{currentNote ? 'Edit Note' : '+ Add Notes'}</Text>
-                    </TouchableOpacity>
-                  )}
+            return (
+              <View style={styles.logCard}>
+                <View style={styles.cardHeader}>
+                  <TouchableOpacity style={styles.checkboxRow} onPress={() => toggleSeen(item.id)}>
+                    <Ionicons 
+                      name={isSeen ? "checkbox" : "square-outline"} 
+                      size={24} 
+                      color={isSeen ? "#38BDF8" : "#9CA3AF"} 
+                    />
+                    <Text style={[styles.itemName, isSeen && styles.seenText]}>{item.name}</Text>
+                  </TouchableOpacity>
                 </View>
-              )}
-            </View>
-          );
-        }}
-      />
+
+                {isSeen && (
+                  <View style={styles.noteSection}>
+                    <Text style={styles.noteDisplay}>Note: {currentNote || 'No notes added yet.'}</Text>
+                    
+                    {isEditing ? (
+                      <View style={styles.editBox}>
+                        <TextInput
+                          style={styles.input}
+                          placeholder="Add observation note..."
+                          placeholderTextColor="#9CA3AF"
+                          value={noteInput}
+                          onChangeText={setNoteInput}
+                        />
+                        <TouchableOpacity style={styles.saveButton} onPress={() => saveNote(item.id)}>
+                          <Text style={styles.saveButtonText}>Save</Text>
+                        </TouchableOpacity>
+                      </View>
+                    ) : (
+                      <TouchableOpacity onPress={() => { setSelectedId(item.id); setNoteInput(currentNote); }}>
+                        <Text style={styles.addNoteText}>{currentNote ? 'Edit Note' : '+ Add Notes'}</Text>
+                      </TouchableOpacity>
+                    )}
+                  </View>
+                )}
+              </View>
+            );
+          }}
+        />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: { flex: 1, backgroundColor: '#0B0F19', padding: 20, paddingTop: 50 },
+  mainContainer: { 
+    flex: 1, 
+    backgroundColor: '#0B0F19' 
+  },
+  container: { 
+    flex: 1, 
+    padding: 20, 
+    paddingTop: 50, 
+    zIndex: 1 
+  },
+  listContainer: {
+    paddingBottom: 30
+  },
   headerTitle: { color: '#38BDF8', fontSize: 18, fontWeight: 'bold', textAlign: 'center', letterSpacing: 1 },
   subtitle: { color: '#9CA3AF', fontSize: 12, textAlign: 'center', marginBottom: 20, marginTop: 4 },
   logCard: { backgroundColor: '#1F2937', borderRadius: 12, padding: 16, marginBottom: 12 },
