@@ -12,8 +12,10 @@ export default function DashboardScreen() {
       
       <StarWatermark />
 
-     
-      <ScrollView contentContainerStyle={styles.scrollContent} style={styles.scrollView}>
+      <ScrollView 
+        contentContainerStyle={styles.scrollContent} 
+        style={styles.scrollView}
+      >
         <View style={styles.header}>
           <Text style={styles.headerTitle}>STARGUIDE DASHBOARD</Text>
         </View>
@@ -48,7 +50,8 @@ const styles = StyleSheet.create({
   },
   scrollView: { 
     flex: 1, 
-    zIndex: 1  
+    zIndex: 1,
+    backgroundColor: 'transparent', 
   },
   scrollContent: { 
     padding: 20,
@@ -56,12 +59,31 @@ const styles = StyleSheet.create({
   },
   header: { marginTop: 50, marginBottom: 20, alignItems: 'center' },
   headerTitle: { color: '#38BDF8', fontSize: 18, fontWeight: 'bold', letterSpacing: 1 },
-  card: { backgroundColor: '#1F2937', borderRadius: 12, padding: 20, marginBottom: 20 },
+  
+  
+  card: { 
+    backgroundColor: 'rgba(31, 41, 55, 0.9)', 
+    borderRadius: 12, 
+    padding: 20, 
+    marginBottom: 20 
+  },
   cardLabel: { color: '#9CA3AF', fontSize: 12, fontWeight: 'bold', marginBottom: 5 },
   visibleText: { color: '#FFF', fontSize: 18, fontWeight: 'bold', marginBottom: 15 },
-  skyVisualBox: { height: 150, backgroundColor: '#111827', borderRadius: 8, justifyContent: 'center', alignItems: 'center' },
+  skyVisualBox: { 
+    height: 150, 
+    backgroundColor: 'rgba(17, 24, 39, 0.8)', 
+    borderRadius: 8, 
+    justifyContent: 'center', 
+    alignItems: 'center' 
+  },
   subSkyText: { color: '#6B7280', fontSize: 12, marginTop: 10 },
-  eventCard: { backgroundColor: '#1E1B4B', borderRadius: 12, padding: 20, borderLeftWidth: 4, borderLeftColor: '#818CF8' },
+  eventCard: { 
+    backgroundColor: 'rgba(30, 27, 75, 0.9)', 
+    borderRadius: 12, 
+    padding: 20, 
+    borderLeftWidth: 4, 
+    borderLeftColor: '#818CF8' 
+  },
   eventTitle: { color: '#FFF', fontSize: 16, fontWeight: 'bold', marginTop: 5 },
   eventDate: { color: '#C7D2FE', fontSize: 14, marginTop: 2 }
 });
